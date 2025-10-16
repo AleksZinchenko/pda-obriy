@@ -85,12 +85,12 @@ const Hero: React.FC = () => {
           {/* КІНЕЦЬ ЛІВОЇ КОЛОНКИ */}
 
           {/* ПРАВА КОЛОНКА - Смартфон */}
-          <div className="hidden lg:flex justify-center items-center">
+          <div className="flex justify-center items-center lg:order-last order-first">
             <div className="relative">
               {/* Смартфон рамка */}
-              <div className="w-[340px] h-[680px] bg-gray-900 rounded-[40px] border-8 border-gray-800 shadow-2xl overflow-hidden relative">
+              <div className="w-[280px] h-[560px] lg:w-[340px] lg:h-[680px] bg-gray-900 rounded-[40px] border-8 border-gray-800 shadow-2xl overflow-hidden relative">
                 {/* Notch (вирізка вгорі) */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-black rounded-b-3xl z-10"></div>
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-5 lg:w-32 lg:h-6 bg-black rounded-b-3xl z-10"></div>
 
                 {/* Екран додатку */}
                 <img

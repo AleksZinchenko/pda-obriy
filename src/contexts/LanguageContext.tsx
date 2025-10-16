@@ -46,6 +46,13 @@ const translations = {
     'gameoverview.anomaly': '! Виявлено аномалію',
     'gameoverview.radiation': '⚠ Попередження: радіація',
 
+    // Gallery
+    'gallery.login': 'Екран логіну',
+    'gallery.registration': 'Реєстрація',
+    'gallery.counter': 'Лічильник Гейгера',
+    'gallery.journal': 'Журнал та завдання',
+    'gallery.agony': 'Агонія',
+
 
     
     // Features
@@ -212,6 +219,13 @@ const translations = {
     'gameoverview.newTask': '+ New task received',
     'gameoverview.anomaly': '! Anomaly detected',
     'gameoverview.radiation': '⚠ Radiation warning',
+
+    // Gallery
+    'gallery.login': 'Login Screen',
+    'gallery.registration': 'Registration',
+    'gallery.counter': 'Geiger Counter',
+    'gallery.journal': 'Journal and Tasks',
+    'gallery.agony': 'Agony',
 
     
     // Features

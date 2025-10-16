@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Zap, Radiation } from 'lucide-react';
+import { Menu, X, Zap, Radiation, Volume2, VolumeX } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useSound } from '../contexts/SoundContext';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const { soundEnabled, setSoundEnabled } = useSound();
+
 
   // ✅ Перемикач анімацій
   const [animationsOn, setAnimationsOn] = useState(
@@ -115,22 +118,32 @@ const Header: React.FC = () => {
             </div>
 
              {/* ✅ НОВА КНОПКА ДЛЯ ВИМК/ВМИК АНІМАЦІЙ */}
-              <button
-                onClick={() => setAnimationsOn(v => !v)}
-                aria-pressed={!animationsOn}
-                className="px-2 py-1 text-xs border border-green-400/50 rounded text-green-400 hover:text-green-300"
-                title="Toggle animations"
-              >
-                {animationsOn ? 'ANIM ON' : 'ANIM OFF'}
-              </button>
+             <button
+               onClick={() => setAnimationsOn(v => !v)}
+               aria-pressed={!animationsOn}
+               className="px-2 py-1 text-xs border border-green-400/50 rounded text-green-400 hover:text-green-300"
+               title="Toggle animations"
+             >
+               {animationsOn ? 'ANIM ON' : 'ANIM OFF'}
+             </button>
 
+             {/* ✅ НОВА КНОПКА ДЛЯ ВИМК/ВМИК ЗВУКОВИХ ЕФЕКТІВ (SFX) */}
+             <button
+               onClick={() => setSoundEnabled(!soundEnabled)}
+               aria-pressed={soundEnabled}
+               className="px-2 py-1 text-xs border border-green-400/50 rounded text-green-400 hover:text-green-300 flex items-center space-x-1"
+               title={t('footer.sfx')}
+             >
+               {soundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
+               <span>{soundEnabled ? 'SFX ON' : 'SFX OFF'}</span>
+             </button>
 
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-green-400 hover:text-green-300 transition-colors"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+             <button
+               onClick={() => setIsMenuOpen(!isMenuOpen)}
+               className="md:hidden text-green-400 hover:text-green-300 transition-colors"
+             >
+               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+             </button>
           </div>
         </div>
 

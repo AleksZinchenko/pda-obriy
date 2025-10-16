@@ -1,6 +1,7 @@
 import React from 'react';
 import { Zap, Heart, Radiation, BookOpen, Wifi } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import AppGallery from './AppGallery';
 
 const GameOverview: React.FC = () => {
   const { t } = useLanguage();
@@ -131,6 +132,8 @@ const GameOverview: React.FC = () => {
             </div>
           </div>
         </div>
+        {/* App Gallery */}
+        <AppGallery />
       </div>
     </section>
   );

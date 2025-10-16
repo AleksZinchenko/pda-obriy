@@ -29,21 +29,44 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-green-400 font-bold mb-4">{t('footer.connect')}</h4>
             <div className="space-y-2">
-              <div href="#" className="flex items-center space-x-2 text-gray-400 hover:text-green-400 transition-colors group">
+              <div className="flex items-center space-x-2 text-gray-600 opacity-50 cursor-not-allowed">
                 <Github size={16} />
-                <span className="group-hover:underline">GitHub</span>
-                <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span>GitHub (soon)</span>
               </div>
-              <div href="#" className="flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition-colors group">
-                <div className="w-4 h-4 bg-blue-400 rounded" />
+              <a
+                href="https://t.me/obriy_kpk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition-colors group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-4 h-4 text-blue-400"
+                >
+                  <path d="M9.04 15.08 8.9 18.9c.36 0 .52-.15.71-.33l1.7-1.63 3.52 2.58c.65.36 1.1.17 1.27-.6l2.31-10.87v-.01c.2-.92-.33-1.28-.95-1.06L3.48 9.55c-.9.35-.88.85-.15 1.08l4.48 1.4 10.38-6.55-9.15 9.7z" />
+                </svg>
                 <span className="group-hover:underline">Telegram</span>
                 <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <div href="#" className="flex items-center space-x-2 text-gray-400 hover:text-purple-400 transition-colors group">
-                <div className="w-4 h-4 bg-purple-400 rounded" />
-                <span className="group-hover:underline">Discord</span>
+              </a>
+              <a
+                href="https://x.com/obriyPDA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition-colors group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-4 h-4 text-blue-400"
+                >
+                  <path d="M18.244 2h3.308l-7.227 8.26L22 22h-6.417l-5.027-6.56L4.8 22H1.49l7.73-8.84L2 2h6.59l4.49 5.95L18.244 2zm-1.16 18h1.83L7.03 4h-1.9l11.955 16z" />
+                </svg>
+                <span className="group-hover:underline">X (Twitter)</span>
                 <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
+              </a>
             </div>
           </div>
 
