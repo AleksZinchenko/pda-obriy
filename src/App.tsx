@@ -36,7 +36,7 @@ function App() {
           <GameOverview />
           <Features />
           <ForOrganizers />
-          <ForInvestors />
+          {/* <ForInvestors /> */}
           <Contacts />
           <Footer />
         </div>
