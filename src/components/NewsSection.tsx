@@ -18,7 +18,7 @@ const NewsSection: React.FC = () => {
     // Динамічний імпорт JSON файлів
     const loadPosts = async () => {
       try {
-        const newsFiles = import.meta.glob('/public/news/*.json');
+        const newsFiles = import.meta.glob('/news/*.json', { eager: true });
         const loadedPosts: NewsPost[] = [];
 
         for (const path in newsFiles) {
