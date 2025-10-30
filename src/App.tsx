@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import NewsSection from './components/NewsSection';
 import GameOverview from './components/GameOverview';
 import Features from './components/Features';
 import ForOrganizers from './components/ForOrganizers';
@@ -33,6 +34,7 @@ function App() {
         <div className="relative z-20">
           <Header />
           <Hero />
+          <NewsSection />
           <GameOverview />
           <Features />
           <ForOrganizers />
