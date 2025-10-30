@@ -7,7 +7,6 @@ interface NewsPost {
   description: string;
   tags: string[];
   image?: string;
-  slug: string;
 }
 
 const NewsSection: React.FC = () => {
@@ -16,29 +15,23 @@ const NewsSection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    // Динамічний імпорт всіх markdown файлів з папки news
+    // Динамічний імпорт JSON файлів
     const loadPosts = async () => {
-      const newsFiles = import.meta.glob('/src/content/news/*.md', { as: 'raw' });
-      const loadedPosts: NewsPost[] = [];
+      try {
+        const newsFiles = import.meta.glob('/public/news/*.json');
+        const loadedPosts: NewsPost[] = [];
 
-      for (const path in newsFiles) {
-        const content = await newsFiles[path]();
-        const matter = await import('gray-matter');
-        const { data } = matter.default(content);
+        for (const path in newsFiles) {
+          const module: any = await newsFiles[path]();
+          loadedPosts.push(module.default || module);
+        }
 
-        loadedPosts.push({
-          title: data.title,
-          date: data.date,
-          description: data.description,
-          tags: data.tags || [],
-          image: data.image,
-          slug: path.split('/').pop()?.replace('.md', '') || '',
-        });
+        // Сортуємо за датою (новіші спочатку)
+        loadedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        setPosts(loadedPosts);
+      } catch (error) {
+        console.error('Error loading news:', error);
       }
-
-      // Сортуємо за датою (новіші спочатку)
-      loadedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-      setPosts(loadedPosts);
     };
 
     loadPosts();

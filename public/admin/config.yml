@@ -1,16 +1,18 @@
 backend:
   name: git-gateway
-  branch: master # або main, залежно від твоєї гілки Git
+  branch: master
 
-media_folder: "public/news-images" # папка для зображень новин
+media_folder: "public/news-images"
 public_folder: "/news-images"
 
 collections:
-  - name: "news" # ідентифікатор колекції
-    label: "Новини" # назва в інтерфейсі
-    folder: "src/content/news" # де зберігатимуться файли новин
-    create: true # дозволити створювати нові
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # формат імені файлу
+  - name: "news"
+    label: "Новини"
+    folder: "public/news"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Заголовок", name: "title", widget: "string"}
       - {label: "Дата публікації", name: "date", widget: "datetime"}
