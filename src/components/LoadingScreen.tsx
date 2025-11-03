@@ -82,7 +82,7 @@ const LoadingScreen: React.FC = () => {
         <div className="inline-block w-2 h-6 bg-green-400 ml-1 animate-ping" />
       </div>
       
-      <style jsx>{`
+      <style>{`
         @keyframes scanlines {
           0% { transform: translateY(-100vh); }
           100% { transform: translateY(100vh); }

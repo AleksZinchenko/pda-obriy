@@ -18,19 +18,25 @@ const NewsSection: React.FC = () => {
     // Динамічний імпорт JSON файлів
     const loadPosts = async () => {
       try {
-        const newsFiles = import.meta.glob('/news/*.json', { eager: true });
+        const newsFiles = import.meta.glob('../content/news/*.json', { eager: true });
+        console.log('📰 Found news files:', Object.keys(newsFiles));
+        console.log('📰 Files content:', newsFiles);
+
         const loadedPosts: NewsPost[] = [];
 
         for (const path in newsFiles) {
-          const module: any = await newsFiles[path]();
-          loadedPosts.push(module.default || module);
+          const module: any = newsFiles[path];  // ← БЕЗ await та ()
+          const post = module.default || module;
+          loadedPosts.push(post);
+          console.log('📄 Loaded post:', post.title);  // ← ДОДАТИ
         }
 
         // Сортуємо за датою (новіші спочатку)
         loadedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
         setPosts(loadedPosts);
+        console.log('✅ Total loaded:', loadedPosts.length);  // ← ДОДАТИ
       } catch (error) {
-        console.error('Error loading news:', error);
+        console.error('❌ Error loading news:', error);
       }
     };
 

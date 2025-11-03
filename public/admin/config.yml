@@ -8,7 +8,7 @@ public_folder: "/news-images"
 collections:
   - name: "news"
     label: "Новини"
-    folder: "public/news"
+    folder: "src/content/news"
     create: true
     extension: "json"
     format: "json"
